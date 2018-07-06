@@ -1,9 +1,9 @@
 {
   "name": "mdc-102-web",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "engines": {
-    "npm": "5.7.1"
+    "npm": "5.6.0"
   },
   "scripts": {
     "start": "webpack-dev-server --progress"
