@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "engines": {
     "node": "8.11.3",
-	"npm": "5.6.0"
+    "npm": "5.6.0"
   },
   "scripts": {
     "start": "webpack-dev-server --host $IP --port $PORT --disable-host-check"
@@ -28,6 +28,8 @@
     "@material/image-list": "^0.35.0",
     "@material/layout-grid": "^0.34.0",
     "@material/list": "^0.37.0",
-    "@material/textfield": "^0.35.0"
+    "@material/textfield": "^0.35.0",
+    "sockjs-client": "^1.1.5",
+    "url-parse": "^1.4.1"
   }
 }
