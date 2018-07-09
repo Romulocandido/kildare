@@ -26,12 +26,11 @@ module.exports = [
           },
         ]
       }]
-    }
+    },
   },
   {
     entry: "./app.js",
     output: {
-		publicPath: '/',
       filename: "bundle.js"
     },
     module: {

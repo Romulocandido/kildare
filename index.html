@@ -1,83 +1,80 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="bundle.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&amp;subset=latin-ext" rel="stylesheet"
-  />
-  <link rel="shortcut icon" href="images/ico/favicon.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png" />
-  <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<link rel="stylesheet" href="bundle.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&amp;subset=latin-ext" rel="stylesheet">
+<link rel="shortcut icon" href="images/ico/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 
-  <title>Kildare</title>
+<title>Kildare</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<style>
+* {
+    box-sizing: border-box;
+}
 
-    body {
-      font-family: 'Roboto Condensed', sans-serif;
-      font-size: 16px;
-      color: #4f4f4f;
-      background-color: #fff;
-      background-size: 100%;
-    }
+body{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 16px;
+    color: #4f4f4f;
+    background-color: #fff;
+    background-size: 100%;
+}
 
-    /* Create two equal columns that floats next to each other */
+/* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 50%;
+    height: 930px; /* Should be removed. Only for demonstration */
+}
 
-    .column {
-      float: left;
-      width: 50%;
-      height: 930px;
-      /* Should be removed. Only for demonstration */
-    }
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
 
-    /* Clear floats after the columns */
+.title {
+  color: #000;
+  font-size: 56px;
+  margin: 50px;
+  text-align: center;
+}
 
-    .row:after {
-      content: "";
-      display: table;
-      clear: both;
-    }
 
-    .title {
-      color: #000;
-      font-size: 56px;
-      margin: 50px;
-      text-align: center;
-    }
-  </style>
+</style>
 
-  <script>
-    window.fbAsyncInit = function () {
-      FB.init({
-        appId: '559243230950445',
-        cookie: true,
-        xfbml: true,
-        version: 'v2.2'
-      });
-
-      FB.Event.subscribe('auth.login', function (response) {
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '559243230950445',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v2.2'
+    });
+      
+    FB.Event.subscribe('auth.login', function (response) {
         if (response.status == 'connected') {
           FB.api('/me', { fields: 'id,name,email,gender,age_range,birthday' }, function (userInfo) {
             window.location = 'cupom.html';
 
-          });
+            });
 
-
+          
 
         }
       });
 
-      FB.AppEvents.logPageView();
+    FB.AppEvents.logPageView();  
 
-      FB.getLoginStatus(function (response) {
+    FB.getLoginStatus(function (response) {
         statusChangeCallback(response);
 
         function statusChangeCallback(response) {
@@ -89,81 +86,73 @@
         }
 
       });
+ 
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
 
 
-    };
-
-    (function (d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) { return; }
-      js = d.createElement(s); js.id = id;
-      js.src = "https://connect.facebook.net/en_US/sdk.js";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-
-
-  </script>
+</script>
 
 
 
 </head>
-
 <body>
-
-  <body class="shrine-login">
-
-
-    <div class="row">
-      <div class="column" style="background-color:#fff; box-shadow: 76px 0 105px rgba(0,0,0,.3);">
-        <form action="cupom.html">
-          <div style="margin: 30% 0 20px 0">
-
-            <div class="title">Resgate seu
-              <b>cupom</b>!</div>
+<body class="shrine-login">
 
 
-            <div class="mdc-text-field mdc-text-field--box username">
-              <input type="text" class="mdc-text-field__input" id="username-input" name="email" required/>
-              <label class="mdc-floating-label" for="username-input">Email</label>
-              <div class="mdc-line-ripple"></div>
-            </div>
+  <div class="row">
+    <div class="column" style="background-color:#fff; box-shadow: 76px 0 105px rgba(0,0,0,.3);">
+      <div style="margin: 30% 0 20px 0">
+
+      <div class="title">Resgate seu <b>cupom</b>!</div>
+
+  <form action="cupom.html">
+          <div class="mdc-text-field mdc-text-field--box username">
+              <input type="text" class="mdc-text-field__input" id="username-input" name="email" required>
+                  <label class="mdc-floating-label" for="username-input">Email</label>
+                      <div class="mdc-line-ripple"></div>
           </div>
-
-          <div class="mdc-text-field mdc-text-field--box password">
-            <input type="password" class="mdc-text-field__input" id="password-input" name="senha" required minlength="8" />
-            <label class="mdc-floating-label" for="password-input">Senha</label>
-            <div class="mdc-line-ripple"></div>
-          </div>
-
-          <div class="button-container">
-            <button class="mdc-button mdc-button--raised next">
-              entrar
-            </button>
-          </div>
-
-          <div style="width: 400px; margin: auto; line-height: 30px; padding-top: 60px;">
-            <a href="cupom.html">
-              <img src="images/LoginGP.svg" />
-            </a>
-
-
-            <div class="fb-login-button" data-width="400" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false"
-              data-auto-logout-link="false" data-scope="email,user_gender,user_age_range" data-use-continue-as="false"></div>
-          </div>
-
-
-        </form>
-
-      </div>
-      <div class="column" style="background-color:#e00b23;">
-        <div style="text-align: center; margin: 50% 0 122px 0;">
-          <img src="images/kildarebranco.svg " width="400" />
         </div>
+
+  <div class="mdc-text-field mdc-text-field--box password">
+    <input type="password" class="mdc-text-field__input" id="password-input" name="senha" required minlength="8">
+    <label class="mdc-floating-label" for="password-input">Senha</label>
+    <div class="mdc-line-ripple"></div>
+  </div>
+
+  <div class="button-container">
+    <button class="mdc-button mdc-button--raised next">
+      entrar
+    </button>
+  </div>
+
+  <div style="width: 400px; margin: auto; line-height: 30px; padding-top: 60px;">
+  <a href="cupom.html""><img src="images/LoginGP.svg"></a> 
+
+
+  <div class="fb-login-button" data-width="400" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-scope="email,user_gender,user_age_range" data-use-continue-as="false"></div>
+  </div>
+
+
+    </form>
+
+    </div>
+    <div class="column" style="background-color:#e00b23;">
+      <div style="text-align: center; margin: 50% 0 122px 0">
+        <img src="images/kildarebranco.svg" width="400">  
       </div>
     </div>
+  </div>
 
-    <script src="bundle.js"></script>
+  <script src="bundle.js" async></script>
 
-  </body>
-
+</body>
 </html>
