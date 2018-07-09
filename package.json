@@ -7,7 +7,7 @@
 	"npm": "5.6.0"
   },
   "scripts": {
-    "start": "webpack-dev-server --port $PORT --host sirros.herokuapp.com --progress"
+    "start": "webpack-dev-server --port $PORT --host 52.206.106.171 --progress"
   },
   "license": "Apache-2.0",
   "devDependencies": {
