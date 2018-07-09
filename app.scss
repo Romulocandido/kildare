@@ -1,15 +1,20 @@
 @import "@material/button/mdc-button";
-@import "@material/drawer/mdc-drawer";
-@import "@material/image-list/mdc-image-list";
-@import "@material/list/mdc-list";
 @import "@material/textfield/mdc-text-field";
 
-html, body {
+@import "@material/drawer/mdc-drawer";
+@import "@material/list/mdc-list";
+
+@import "@material/image-list/mdc-image-list";
+
+@import "@material/layout-grid/mdc-layout-grid";
+
+html,
+body {
   height: 100%;
 }
 
 body {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   margin: 0;
   padding-top: 0.1px; // Prevent header h1 margin from pushing body down
 }
