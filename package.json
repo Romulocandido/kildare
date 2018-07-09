@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",  
   "scripts": {
-    "start": "webpack-dev-server --hot --host $IP --port $PORT --disable-host-check --progress"
+    "start": "webpack-dev-server --inline --host $IP --port $PORT --disable-host-check --progress"
   },
   "license": "Apache-2.0",
   "devDependencies": {
