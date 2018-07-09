@@ -7,7 +7,7 @@
 	"npm": "5.6.0"
   },
   "scripts": {
-    "start": "webpack-dev-server --port $PORT"
+    "start": "webpack-dev-server --port $PORT --host $HOST"
   },
   "license": "Apache-2.0",
   "devDependencies": {
