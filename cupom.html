@@ -12,7 +12,7 @@
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
 <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 
-<title>Kildare</title>
+<title>Cupom Kildare</title>
 
 <style>
 * {
@@ -31,6 +31,7 @@ body{
 .column {
     float: left;
     width: 50%;
+    padding: 80px;
     height: 930px; /* Should be removed. Only for demonstration */
 }
 
@@ -44,8 +45,31 @@ body{
 .title {
   color: #000;
   font-size: 56px;
-  margin: 50px;
+  margin: 20px;
   text-align: center;
+
+}
+
+.message{
+    font-style: italic;
+    font-size: 22px;
+    font-weight: 300;
+    text-align: center;
+    margin: 20px;
+}
+
+.mens {
+    background-color: #e00b23;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #fff;
+
+    width: 500px;
+    border: 25px solid #e00b23;
+    padding: 25px;
+    margin: 50px;
 }
 
 
@@ -60,17 +84,6 @@ body{
       version    : 'v2.2'
     });
       
-    FB.Event.subscribe('auth.login', function (response) {
-        if (response.status == 'connected') {
-          FB.api('/me', { fields: 'id,name,email,gender,age_range,birthday' }, function (userInfo) {
-            window.location = 'cupom.html';
-
-            });
-
-          
-
-        }
-      });
 
     FB.AppEvents.logPageView();  
 
@@ -80,11 +93,18 @@ body{
         function statusChangeCallback(response) {
           if (response.status == 'connected') {
             FB.api('/me', { fields: 'id,name,email,gender,age_range,birthday' }, function (userInfo) {
-              window.location = 'cupom.html';
+               var element = document.querySelector("#name").innerHTML = userInfo.name;
+               
+              
             });
           }
-        }
 
+          /*
+          else{
+            window.location = "index.html";
+          }
+          */
+        }
       });
  
       
@@ -101,58 +121,37 @@ body{
 
 </script>
 
-
-
 </head>
 <body>
 <body class="shrine-login">
 
+<div id="fb-root"></div>
 
-  <div class="row">
-    <div class="column" style="background-color:#fff; box-shadow: 76px 0 105px rgba(0,0,0,.3);">
-      <div style="margin: 30% 0 20px 0">
 
-      <div class="title">Resgate seu <b>cupom</b>!</div>
+<div class="row">
+  <div class="column" style="background-color:#e00b23;">
 
-  <form action="cupom.html">
-          <div class="mdc-text-field mdc-text-field--box username">
-              <input type="text" class="mdc-text-field__input" id="username-input" name="email" required>
-                  <label class="mdc-floating-label" for="username-input">Email</label>
-                      <div class="mdc-line-ripple"></div>
-          </div>
-        </div>
+        <div style="text-align: center; margin: 50% 0 122px 0">
+      <img src="images/kildarebranco.svg" width="400">  
+    </div>  
 
-  <div class="mdc-text-field mdc-text-field--box password">
-    <input type="password" class="mdc-text-field__input" id="password-input" name="senha" required minlength="8">
-    <label class="mdc-floating-label" for="password-input">Senha</label>
-    <div class="mdc-line-ripple"></div>
+
   </div>
 
-  <div class="button-container">
-    <button class="mdc-button mdc-button--raised next">
-      entrar
-    </button>
+  <div class="column" style="background-color:#fff; align-content: center; box-shadow: 0 0 30px rgba(0,0,0,.3);">
+    <div style="margin: 30% 0 20px 0">
+    <div class="title"><b>Parabéns,
+      <p id="name"></p></b></div>
+    <div class="message">você ganhou um cupom com 30% de desconto.
+
+            <div class="mens" style="box-shadow: 0 0 25px rgba(0,0,0,.3);">
+                KDRCOM30JUL18-20TM-A39S-D9EM-F9T8
+            </div></div>
+</div>
   </div>
+</div>
 
-  <div style="width: 400px; margin: auto; line-height: 30px; padding-top: 60px;">
-  <a href="cupom.html""><img src="images/LoginGP.svg"></a> 
-
-
-  <div class="fb-login-button" data-width="400" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-scope="email,user_gender,user_age_range" data-use-continue-as="false"></div>
-  </div>
-
-
-    </form>
-
-    </div>
-    <div class="column" style="background-color:#e00b23;">
-      <div style="text-align: center; margin: 50% 0 122px 0">
-        <img src="images/kildarebranco.svg" width="400">  
-      </div>
-    </div>
-  </div>
-
-  <script src="bundle.js" async></script>
+<script src="bundle.js" async></script>
 
 </body>
 </html>
