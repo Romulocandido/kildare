@@ -43,7 +43,6 @@ body {
   display: flex; // Flexbox is used to easily arrange the persistent drawer and content side-by-side
 }
 
-
 @media (max-width: 500px) {
   .kildarelogo {
     width: 200px;
@@ -56,5 +55,6 @@ body {
   .kildarelogo {
     width: 400px;
     text-align: center;
+    margin: 50% 10%;
   }
 }

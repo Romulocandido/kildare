@@ -1,101 +1,102 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta charset="utf-8">
-<link rel="stylesheet" href="bundle.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
-<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&amp;subset=latin-ext" rel="stylesheet">
-<link rel="shortcut icon" href="images/ico/favicon.png">
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
-<link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="bundle.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&amp;subset=latin-ext" rel="stylesheet">
+  <link rel="shortcut icon" href="images/ico/favicon.png">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 
-<title>Cupom Kildare</title>
+  <title>Cupom Kildare</title>
 
-<style>
-* {
-    box-sizing: border-box;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-body{
-    font-family: 'Roboto Condensed', sans-serif;
-    font-size: 16px;
-    color: #4f4f4f;
-    background-color: #fff;
-    background-size: 100%;
-}
+    body {
+      font-family: 'Roboto Condensed', sans-serif;
+      font-size: 16px;
+      color: #4f4f4f;
+      background-color: #fff;
+      background-size: 100%;
+    }
 
-/* Create two equal columns that floats next to each other */
-.column {
-    float: left;
-    width: 50%;
-    padding: 80px;
-    height: 930px; /* Should be removed. Only for demonstration */
-}
+    /* Create two equal columns that floats next to each other */
 
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
+    .column {
+      float: left;
+      width: 50%;
+      padding: 80px;
+      height: 930px;
+      /* Should be removed. Only for demonstration */
+    }
 
-.title {
-  color: #000;
-  font-size: 56px;
-  margin: 20px;
-  text-align: center;
+    /* Clear floats after the columns */
 
-}
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
 
-.message{
-    font-style: italic;
-    font-size: 22px;
-    font-weight: 300;
-    text-align: center;
-    margin: 20px;
-}
+    .title {
+      color: #000;
+      font-size: 56px;
+      margin: 20px;
+      text-align: center;
 
-.mens {
-    background-color: #e00b23;
-    font-size: 22px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    text-align: center;
-    color: #fff;
+    }
 
-    width: 500px;
-    border: 25px solid #e00b23;
-    padding: 25px;
-    margin: 50px;
-}
+    .message {
+      font-style: italic;
+      font-size: 22px;
+      font-weight: 300;
+      text-align: center;
+
+    }
+
+    .mens {
+      background-color: #e00b23;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-align: center;
+      color: #fff;
+
+      /* width: 500px; */
+      border: 25px solid #e00b23;
+      padding: 25px;
+      margin-top: 20px;
+
+    }
+  </style>
+
+  <script>
+    window.fbAsyncInit = function () {
+      FB.init({
+        appId: '559243230950445',
+        cookie: true,
+        xfbml: true,
+        version: 'v2.2'
+      });
 
 
-</style>
+      FB.AppEvents.logPageView();
 
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '559243230950445',
-      cookie     : true,
-      xfbml      : true,
-      version    : 'v2.2'
-    });
-      
-
-    FB.AppEvents.logPageView();  
-
-    FB.getLoginStatus(function (response) {
+      FB.getLoginStatus(function (response) {
         statusChangeCallback(response);
 
         function statusChangeCallback(response) {
           if (response.status == 'connected') {
             FB.api('/me', { fields: 'id,name,email,gender,age_range,birthday' }, function (userInfo) {
-               var element = document.querySelector("#name").innerHTML = userInfo.name;
-               
-              
+              var element = document.querySelector("#name").innerHTML = userInfo.name;
             });
           }
 
@@ -106,52 +107,65 @@ body{
           */
         }
       });
- 
-      
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
 
 
-</script>
+    };
+
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) { return; }
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+
+  </script>
 
 </head>
-<body>
+
 <body class="shrine-login">
 
-<div id="fb-root"></div>
+  <div id="fb-root"></div>
 
 
-<div class="row">
-  <div class="column" style="background-color:#e00b23;">
+  <div class="mdc-layout-grid">
+    <div class="mdc-layout-grid__inner">
+      <div class="mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-12-tablet mdc-layout-grid__cell--span-12-phone"
+        style="background-color:#e00b23;">
 
-        <div style="text-align: center; margin: 50% 0 122px 0">
-      <img src="images/kildarebranco.svg" width="400">  
-    </div>  
+        <div class="mdc-layout-grid">
+          <div class="mdc-layout-grid__inner">
+            <div style="text-align: center;" class="mdc-layout-grid__cell--span-12">
+              <img class="kildarelogo" src="images/kildarebranco.svg" />
+            </div>
+          </div>
+        </div>
 
 
-  </div>
+      </div>
 
-  <div class="column" style="background-color:#fff; align-content: center; box-shadow: 0 0 30px rgba(0,0,0,.3);">
-    <div style="margin: 30% 0 20px 0">
-    <div class="title"><b>Parabéns,
-      <p id="name"></p></b></div>
-    <div class="message">você ganhou um cupom com 30% de desconto.
+      <div class="mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-12-tablet mdc-layout-grid__cell--span-12-phone"
+        style="background-color:#fff;">
+        <div style="margin: 20% 10%">
+          <div class="title">
+            <b>Parabéns,
+              <p id="name"></p>
+            </b>
+          </div>
+          <div class="message">você ganhou um cupom com 30% de desconto.
 
             <div class="mens" style="box-shadow: 0 0 25px rgba(0,0,0,.3);">
-                KDRCOM30JUL18-20TM-A39S-D9EM-F9T8
-            </div></div>
-</div>
+              KDRCOM30JUL18-20TM-A39S-D9EM-F9T8
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 
-<script src="bundle.js" async></script>
+  <script src="bundle.js" async></script>
 
 </body>
+
 </html>

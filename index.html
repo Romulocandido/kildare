@@ -54,32 +54,28 @@
         version: 'v2.2'
       });
 
-      FB.Event.subscribe('auth.login', function (response) {
+      FB.Event.subscribe('auth.statusChange', function (response) {
         if (response.status == 'connected') {
           FB.api('/me', { fields: 'id,name,email,gender,age_range,birthday' }, function (userInfo) {
             window.location = 'cupom.html';
-
           });
-
-
-
         }
       });
 
       FB.AppEvents.logPageView();
 
-      FB.getLoginStatus(function (response) {
-        statusChangeCallback(response);
+      // FB.getLoginStatus(function (response) {
+      //   statusChangeCallback(response);
 
-        function statusChangeCallback(response) {
-          if (response.status == 'connected') {
-            FB.api('/me', { fields: 'id,name,email,gender,age_range,birthday' }, function (userInfo) {
-              // window.location = 'cupom.html';
-            });
-          }
-        }
+      //   function statusChangeCallback(response) {
+      //     if (response.status == 'connected') {
+      //       FB.api('/me', { fields: 'id,name,email,gender,age_range,birthday' }, function (userInfo) {
+      //         // window.location = 'cupom.html';
+      //       });
+      //     }
+      //   }
 
-      });
+      // });
 
 
     };
@@ -105,7 +101,8 @@
         style="background-color:#fff;">
         <div style="margin: 20% 0 200px 0">
 
-          <div class="title">Resgate seu <b>cupom</b>!</div>
+          <div class="title">Resgate seu
+            <b>cupom</b>!</div>
 
 
           <form action="cupom.html">
@@ -140,7 +137,8 @@
         </div>
       </div>
 
-      <div class="mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-12-tablet mdc-layout-grid__cell--span-12-phone" style="background-color:#e00b23;">
+      <div class="mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-12-tablet mdc-layout-grid__cell--span-12-phone"
+        style="background-color:#e00b23;">
         <div class="mdc-layout-grid">
           <div class="mdc-layout-grid__inner">
             <div style="text-align: center;" class="mdc-layout-grid__cell--span-12">
